@@ -1,96 +1,84 @@
-abstract public class Employee {
+abstract class Employee {
     protected int employeeId;
     protected String name;
     protected String paymentMethod;
     protected String paymentDetails;
     protected String taxInformation;
-    protected String employeeType;
-    public Employee(String employeeType,int employeeId,String name,String paymentDetails,String paymentMethod,String taxInformation){
 
-        this.employeeId=employeeId;
-        this.name=name;
-        this.paymentDetails=paymentDetails;
-        this.paymentMethod=paymentMethod;
-        this.taxInformation=taxInformation;
-        this.employeeType=employeeType;
+    public Employee(int employeeId, String name, String paymentMethod, String paymentDetails, String taxInformation) {
+        this.employeeId = employeeId;
+        this.name = name;
+        this.paymentMethod = paymentMethod;
+        this.paymentDetails = paymentDetails;
+        this.taxInformation = taxInformation;
     }
 
-    abstract double calculatepay();
+    public abstract double calculatePay();
 
-    String generatePayStub(){
-
-        return "EmployeeId: "+ employeeId + "/n" +
-                "EmployeeName: "+ name + "/n" +
-                "EmployeeType: "+ employeeType + "/n" +
-                "Pay: "+ calculatepay() + "/n" +
-                "PaymentMethod: "+ paymentMethod;
-
-
+    public String generatePayStub() {
+        return "Employee ID: " + employeeId + "\n" +
+                "Name: " + name + "\n" +
+                "Pay: " + calculatePay() + "\n" +
+                "Payment Method: " + paymentMethod + "\n";
     }
 
-
-
-
+    public int getEmployeeId() {
+        return employeeId;
+    }
 }
 
 
 
- class SalariedEmployee extends Employee{
 
+class SalariedEmployee extends Employee {
     private double salary;
 
-    SalariedEmployee(double salary,String employeeType,int employeeId,String name,String paymentDetails,String paymentMethod,String taxInformation){
-        super(employeeType, employeeId, name, paymentDetails, paymentMethod, taxInformation);
-        this.salary=salary;
+    public SalariedEmployee(int employeeId, String name, String paymentMethod, String paymentDetails, String taxInformation, double salary) {
+        super(employeeId, name, paymentMethod, paymentDetails, taxInformation);
+        this.salary = salary;
     }
 
     @Override
-    double calculatepay() {
+    public double calculatePay() {
         return salary;
     }
 }
 
-class HourlyEmployee extends Employee{
 
+class HourlyEmployee extends Employee {
     private double hourlyRate;
     private double hoursWorked;
 
-
-    HourlyEmployee(String employeeType,int employeeId,String name,String paymentDetails,String paymentMethod,String taxInformation,double hourlyRate,double hoursWorked){
-
-        super( employeeType, employeeId, name, paymentDetails, paymentMethod, taxInformation);
-        this.hourlyRate=hourlyRate;
-        this.hoursWorked=hoursWorked;
-
+    public HourlyEmployee(int employeeId, String name, String paymentMethod, String paymentDetails, String taxInformation, double hourlyRate, double hoursWorked) {
+        super(employeeId, name, paymentMethod, paymentDetails, taxInformation);
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
     }
 
     @Override
-    double calculatepay() {
-        return hourlyRate*hoursWorked;
+    public double calculatePay() {
+        return hourlyRate * hoursWorked;
     }
 }
 
 
-class CommissionedEmployee extends Employee{
 
+class CommissionedEmployee extends Employee {
     private double commissionRate;
     private double totalSales;
 
-    CommissionedEmployee(String employeeType,int employeeId,String name,String paymentDetails,String paymentMethod,String taxInformation,double commissionRate,double totalSales){
-
-        super( employeeType, employeeId, name, paymentDetails, paymentMethod, taxInformation);
-
-        this.commissionRate=commissionRate;
-        this.totalSales=totalSales;
-
+    public CommissionedEmployee(int employeeId, String name, String paymentMethod, String paymentDetails, String taxInformation, double commissionRate, double totalSales) {
+        super(employeeId, name, paymentMethod, paymentDetails, taxInformation);
+        this.commissionRate = commissionRate;
+        this.totalSales = totalSales;
     }
-
 
     @Override
-    double calculatepay() {
-        return commissionRate*totalSales;
+    public double calculatePay() {
+        return commissionRate * totalSales;
     }
 }
+
 
 
 
