@@ -55,6 +55,10 @@ public abstract class Employee {
     public String getEmployeeType() {
         return employeeType;
     }
+
+    public String getPaymentDetails() {
+        return paymentDetails;
+    }
 }
 
 
@@ -63,7 +67,6 @@ public abstract class Employee {
 
 class SalariedEmployee extends Employee {
     private double salary;
-
     public SalariedEmployee(int employeeId, String name, String paymentMethod, String paymentDetails, String taxInformation, double salary) {
         super(employeeId, name, "Salaried", paymentMethod, paymentDetails, taxInformation);
         this.salary = salary;
