@@ -5,6 +5,15 @@ public abstract class Employee {
     private String paymentMethod;
     private String paymentDetails;
     private String taxInformation;
+    private double Deduction;
+
+    public double getDeduction() {
+        return Deduction;
+    }
+
+    public void setDeduction(double deduction) {
+        Deduction = deduction;
+    }
 
     public Employee(int employeeId, String name, String employeeType, String paymentMethod, String paymentDetails, String taxInformation) {
         this.employeeId = employeeId;
