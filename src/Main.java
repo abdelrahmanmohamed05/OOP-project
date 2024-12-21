@@ -5,33 +5,25 @@ public class Main {
 
 
 
-
-
-
-
-
-
-
-
- Scanner input=new Scanner(System.in);
-PayrollSystem system=new PayrollSystem();
- while(true) {
-     System.out.println("welcome to company pay roll system please choose one of the functionalities to continue\n"
+    Scanner input=new Scanner(System.in);
+    PayrollSystem system=new PayrollSystem();
+    while(true) {
+        System.out.println("welcome to company pay roll system please choose one of the functionalities to continue\n"
              + "1-add employee \t" + "2-remove employee \t" + "3-calculate total payroll \t" + "4-generate payslibs \t"
              + "5-update employee details \t" + "6-single employee functionalities\t" +"7-exit");
-int choice1;
-     try{
-    choice1=input.nextInt();
-}
-catch (java.util.InputMismatchException e){
+    int choice1;
+        try{
+     choice1=input.nextInt();
+    }
+    catch (java.util.InputMismatchException e){
 
              System.out.println("you entered an invalid input please enter another value: ");
             choice1=input.nextInt();
 
 
-}
-boolean exit = false;
-switch(choice1) {
+    }
+    boolean exit = false;
+    switch(choice1) {
     case 1:
         System.out.println("enter the new employee name:");
         String name = input.next();
@@ -180,6 +172,4 @@ switch(choice1) {
  }
  System.out.println("thank you for using our company payroll system");
 }
-}
-    }
 }

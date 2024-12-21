@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PayrollSystem {
-    private ArrayList<Employee> employees = new ArrayList<>();
+    protected ArrayList<Employee> employees = new ArrayList<>();
     private HashMap<String, String> userCredentials = new HashMap<>();
 
     public void addEmployee(Employee employee) {
