@@ -3,7 +3,6 @@ import java.util.HashMap;
 
 public class PayrollSystem {
     protected ArrayList<Employee> employees = new ArrayList<>();
-    private HashMap<String, String> userCredentials = new HashMap<>();
 
     public void addEmployee(Employee employee) {
         employees.add(employee);
@@ -41,14 +40,6 @@ public class PayrollSystem {
                 }
             }
         }
-    }
-
-    public void registerUser(String username, String password) {
-        userCredentials.put(username, password);
-    }
-
-    public boolean login(String username, String password) {
-        return userCredentials.getOrDefault(username, "").equals(password);
     }
 }
 
