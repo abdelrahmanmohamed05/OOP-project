@@ -6,7 +6,43 @@ public class Main {
 
 
     Scanner input=new Scanner(System.in);
-    PayrollSystem system=new PayrollSystem();
+
+        while (true) {
+            System.out.println("Welcome! Please choose an option:");
+            System.out.println("1- Register");
+            System.out.println("2- Login");
+            System.out.println("3- Exit");
+            int choice = input.nextInt();
+            input.nextLine(); // Consume the newline character
+            if (choice == 1) {
+                System.out.print("Enter username: ");
+                String username = input.nextLine();
+                System.out.print("Enter password: ");
+                String password = input.nextLine();
+                User.register(username, password);
+            } else if (choice == 2) {
+                System.out.print("Enter username: ");
+                String username = input.nextLine();
+                System.out.print("Enter password: ");
+                String password = input.nextLine();
+                if (User.login(username, password)) {
+                    System.out.println("Login successful!");
+                    break; // Proceed to payroll system
+                } else {
+                    System.out.println("Invalid credentials. Please try again.");
+                }
+            } else if (choice == 3) {
+                System.out.println("Goodbye!");
+                return;
+            } else {
+                System.out.println("Invalid option. Please try again.");
+            }
+        }
+
+
+
+
+        PayrollSystem system=new PayrollSystem();
     while(true) {
         System.out.println("welcome to company pay roll system please choose one of the functionalities to continue\n"
              + "1-add employee \t" + "2-remove employee \t" + "3-calculate total payroll \t" + "4-generate payslibs \t"
