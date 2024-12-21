@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-
+    User.register("Admin1", "Password1", "admin");
+    User.register("Admin2","Password2","admin");
 
     Scanner input=new Scanner(System.in);
     User loggedInUser = null;
@@ -20,9 +21,7 @@ public class Main {
                 String username = input.nextLine();
                 System.out.print("Enter password: ");
                 String password = input.nextLine();
-                System.out.print("Enter user's type (admin/user): ");
-                String userType = input.nextLine();
-                User.register(username, password, userType);
+                User.register(username, password, "user");
             } else if (choice0 == 2) {
                 System.out.print("Enter username: ");
                 String username = input.nextLine();
